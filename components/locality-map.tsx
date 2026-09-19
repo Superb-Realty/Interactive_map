@@ -75,7 +75,10 @@ export default function LocalityMap() {
       if (!markers.current) return;
       markers.current.clearLayers();
       const projectIcon = L.divIcon({ className: 'map-marker-shell', html: '<span class=project-marker><i>S</i></span>', iconSize: [42, 42], iconAnchor: [21, 21] });
-      L.marker([PROJECT_CENTER.lat, PROJECT_CENTER.lng], { icon: projectIcon }).bindPopup(`<strong>${PROJECT_NAME}</strong><br>Vikhroli East`).addTo(markers.current);
+      L.marker([PROJECT_CENTER.lat, PROJECT_CENTER.lng], { icon: projectIcon })
+        .bindTooltip(`<strong>${PROJECT_NAME}</strong>`, { permanent: true, direction: 'top', offset: [0, -22], className: 'location-label project-label' })
+        .bindPopup(`<strong>${PROJECT_NAME}</strong><br>Vikhroli East`)
+        .addTo(markers.current);
       const visible = NODES.filter((node) => active === 'all' || node.category === active);
       visible.forEach((node, index) => {
         const category = categories[node.category as Category];
@@ -86,7 +89,10 @@ export default function LocalityMap() {
         const path = light.getElement();
         if (path instanceof SVGElement) path.style.setProperty('--flow-delay', `${-index * 0.12}s`);
         const icon = L.divIcon({ className: 'map-marker-shell', html: `<span class=place-marker style=--marker:${category[1]}></span>`, iconSize: [20, 20], iconAnchor: [10, 10] });
-        L.marker([node.lat, node.lng], { icon }).bindPopup(`<strong>${node.name}</strong><br>${category[0]} · ${node.meta}`).addTo(markers.current!);
+        L.marker([node.lat, node.lng], { icon })
+          .bindTooltip(`<span>${node.name}</span><small>${node.meta}</small>`, { permanent: true, direction: 'top', offset: [0, -10], className: 'location-label' })
+          .bindPopup(`<strong>${node.name}</strong><br>${category[0]} · ${node.meta}`)
+          .addTo(markers.current!);
       });
       map.current?.fitBounds(
         [[PROJECT_CENTER.lat, PROJECT_CENTER.lng], ...visible.map((node) => [node.lat, node.lng] as [number, number])],
