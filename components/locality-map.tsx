@@ -5,7 +5,7 @@ import { NODES, PROJECT_CENTER, PROJECT_NAME } from '../data';
 
 const categories = {
   nearbyAreas: ['Nearby areas', '#2563eb'],
-  businessParks: ['Business parks', '#7c3aed'],
+  businessParks: ['Business parks', '#43297c'],
   healthcare: ['Healthcare', '#dc2626'],
   hospitality: ['Hospitality', '#ea580c'],
   entertainment: ['Entertainment', '#db2777'],

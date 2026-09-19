@@ -5,14 +5,14 @@ body {
   margin: 0;
 }
 
-:root { --map-bg: #ebe8e0; --panel-bg: #f8f5ed; --panel-text: #17382d; --panel-muted: #60736b; --panel-hover: rgb(18 55 42 / 7%); --panel-active: #17382d; --panel-active-text: #fff; --panel-border: rgb(18 55 42 / 13%); --tile-filter: none; }
-.dark { --map-bg: #101713; --panel-bg: #0c2119; --panel-text: #eff7f3; --panel-muted: #9db2aa; --panel-hover: rgb(255 255 255 / 8%); --panel-active: #f6f3eb; --panel-active-text: #12372a; --panel-border: rgb(255 255 255 / 14%); --tile-filter: brightness(.72) saturate(.78); }
+:root { --brand-purple: #43297c; --brand-gold: #c8b27f; --map-bg: #f3f0f8; --panel-bg: #faf8fc; --panel-text: #2d2044; --panel-muted: #756b83; --panel-hover: rgb(67 41 124 / 8%); --panel-active: var(--brand-purple); --panel-active-text: #fff; --panel-border: rgb(67 41 124 / 16%); --tile-filter: none; }
+.dark { --map-bg: #100a1d; --panel-bg: #1a102d; --panel-text: #f7f2ff; --panel-muted: #b9adc9; --panel-hover: rgb(200 178 127 / 10%); --panel-active: var(--brand-gold); --panel-active-text: #24143d; --panel-border: rgb(200 178 127 / 24%); --tile-filter: brightness(.68) saturate(.72) hue-rotate(18deg); }
 .map-app { display: grid; grid-template-columns: 320px 1fr; height: 100dvh; background: var(--map-bg); }
 .map-panel { z-index: 500; display: flex; flex-direction: column; gap: 32px; padding: 42px 30px 24px; overflow-y: auto; background: var(--panel-bg); color: var(--panel-text); box-shadow: 10px 0 36px rgb(0 0 0 / 16%); }
 .panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .theme-toggle { display: grid; flex: 0 0 auto; place-items: center; width: 38px; height: 38px; border: 1px solid var(--panel-border); border-radius: 50%; background: var(--panel-hover); color: var(--panel-text); font-size: 19px; cursor: pointer; }
-.theme-toggle:hover, .theme-toggle:focus-visible { border-color: #d4a85f; outline: none; }
-.eyebrow { margin: 0 0 10px; color: #d4a85f; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.theme-toggle:hover, .theme-toggle:focus-visible { border-color: var(--brand-gold); outline: none; }
+.eyebrow { margin: 0 0 10px; color: var(--brand-gold); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .map-panel h1 { margin: 0; font-family: Georgia, serif; font-size: 32px; font-weight: 500; line-height: 1.1; }
 .intro { margin: 14px 0 0; color: #c7d5cf; font-size: 14px; line-height: 1.6; }
 .category-list { display: grid; gap: 7px; }
@@ -21,7 +21,7 @@ body {
 .category-list button.active { border-color: var(--panel-border); background: var(--panel-active); color: var(--panel-active-text); font-weight: 650; }
 .category-list small { color: inherit; opacity: .62; }
 .category-dot { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 0 3px rgb(255 255 255 / 10%); }
-.category-dot.all { background: #d4a85f; }
+.category-dot.all { background: var(--brand-gold); }
 .panel-note { margin: auto 0 0; padding-top: 20px; border-top: 1px solid var(--panel-border); color: var(--panel-muted); font-size: 11px; }
 .map-stage, .leaflet-map { width: 100%; height: 100%; min-height: 420px; }
 .leaflet-map { background: var(--map-bg); }
@@ -31,7 +31,7 @@ body {
 @keyframes connection-flow { to { stroke-dashoffset: -28; } }
 .map-marker-shell { background: transparent; border: 0; }
 .place-marker { display: block; width: 16px; height: 16px; border: 3px solid #fff; border-radius: 50%; background: var(--marker); box-shadow: 0 2px 9px rgb(0 0 0 / 35%); }
-.project-marker { display: grid; place-items: center; width: 42px; height: 42px; border: 3px solid #fff; border-radius: 50% 50% 50% 8px; transform: rotate(-45deg); background: #12372a; color: #fff; box-shadow: 0 4px 14px rgb(0 0 0 / 30%); }
+.project-marker { display: grid; place-items: center; width: 42px; height: 42px; border: 3px solid var(--brand-gold); border-radius: 50% 50% 50% 8px; transform: rotate(-45deg); background: var(--brand-purple); color: #fff; box-shadow: 0 4px 16px rgb(67 41 124 / 45%); }
 .project-marker i { transform: rotate(45deg); font: 700 17px Georgia, serif; }
 .leaflet-popup-content-wrapper { border-radius: 10px; }
 .leaflet-popup-content { margin: 13px 16px; font-family: var(--font-geist-sans), sans-serif; line-height: 1.5; }
